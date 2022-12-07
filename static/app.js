@@ -23,6 +23,35 @@ class BoggleGame {
     $(".msg", this.board).text(msg).removeClass().addClass(`msg ${cls}`);
   }
 
+  async handleSubmit(e) {
+    e.preventDefault();
+    const $word = $(".word", this.board);
+    let word = $word.val();
+    if (!word) return;
+
+    // checks if the word is already used
+    if (this.words.has(word)) {
+      this.showMessage(`You already used the word: ${word}`, "err");
+      return;
+    }
+
+    const resp = await axios.get("/check-word", { params: { word: word } });
+    if (resp.data.result === "not-word") {
+      this.showMessage(`${word} is not a valid word`, "err");
+    } else if (resp.data.result === "not-on-board") {
+      this.showMessage(`${word} is not a word on the board`, "err");
+    } else {
+      this.showWord(word);
+      this.score += word.length;
+      this.showScore();
+      this.words.add(word);
+      this.showMessage(`Added: ${word}`, "ok");
+    }
+
+    $word.val("").focus();
+  }
+
+  // Update timer
   showTimer() {
     $(".timer", this.board).text(this.secs);
   }
