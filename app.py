@@ -24,7 +24,7 @@ def homepage():
 def check_word():
     """Checks the word to see if it's valid"""
 
-    word = request.args["word"]
+    word = request.args["word"].lower()
     board = session["board"]
     response = boggle_game.check_valid_word(board, word)
 
