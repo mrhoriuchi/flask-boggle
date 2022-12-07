@@ -1,6 +1,46 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aquamarine;
+}
 .board{
     border: solid 1px black;
+    border-radius: 10%;
     font-family: monospace;
     font-weight: bold;
     font-size: 200%;
+    background-color: white;
+}
+.board td{
+    text-align: center;
+    width: 1.5em;
+    height: 1.5em;
+}
+.scorelist{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.msg{
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+.msg.ok{
+    background-color: green;
+}
+.msg.err{
+    background-color: red;
+}
+button{
+    background-color: darksalmon;
+    border-radius: 10%;
+    border: 1px black;
+    padding: 3px 4px;
+    text-align: center;
+    
+}
+button:hover{
+    opacity: 0.8;
+    cursor: pointer;
 }
