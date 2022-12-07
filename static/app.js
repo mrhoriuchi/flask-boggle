@@ -11,6 +11,7 @@ class BoggleGame {
 
     $(".add-word", this.board).on("submit", this.handleSubmit.bind(this));
   }
+
   showWord(word) {
     $(".words", this.board).append($("<li>", { text: word }));
   }
@@ -57,7 +58,7 @@ class BoggleGame {
   }
 
   async tick() {
-    this.sec -= 1;
+    this.secs -= 1;
     this.showTimer();
 
     if (this.secs === 0) {

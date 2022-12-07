@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
+    <h1>Boggle!</h1>
     <section id="boggle">
         <table class="board">
             <tbody>
@@ -22,6 +23,10 @@
         </table>
         <p class="scorelist">High Score:
             <b>{{ highscore }}</b> in {{ number_plays }} plays
+        </p>
+        <p>
+            Score: <b class="score">0</b>
+            Seconds left: <b class="timer"></b>
         </p>
         <form method="POST" class="add-word">
             <input name="word" class="word">
